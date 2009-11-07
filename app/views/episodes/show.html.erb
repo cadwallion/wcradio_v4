@@ -1,0 +1,17 @@
+<div id="shows-block">
+	<% if params[:show_id].nil? %>
+	<h1>WoW Radio Archives</h1>
+	<% content_for :title do %>WoW Radio Downloads<% end %>
+	<% else %>
+		<% unless @episode.nil? %>
+			<h1><%= @episode.name %></h1>
+			<% content_for :title do %><%= @episode.name %><% end %>
+		<% else %>
+			<h1>Episode Unavailable</h1>
+			<% content_for :title do %>Episode Unavailable<% end %>
+			<p>The episode requested could not be found.</p>
+		<% end %>
+	<% end %>
+	<%= render @episode unless @episode.nil? %>
+	<%= link_to "Back to Downloads", episodes_path %>
+</div>

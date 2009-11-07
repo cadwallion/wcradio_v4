@@ -1,0 +1,19 @@
+<% content_for :title do %>WoW Idol 2009 - Cast Your Vote Today<% end %>
+<div id="shows-block">
+<h1>WoW Idol 2009 - Vote</h1>
+
+<p>Here are your semi-finalists for the WoW Idol 2009 Competition!  Vote now with the link below and we'll be announcing the winner at the end of the voting period.</p>
+
+<ul style="list-style-type: none;">
+	<li><a href="http://media.wcradio.com/archive/music/PatchTuesday.mp3" class="htrack">Bill Shaw - Patch Tuesday</a></li>
+	<li><a href="http://media.wcradio.com/archive/music/Mynameisnewbie.mp3" class="htrack">Brewguy - My Name is Newbie</a></li>
+	<li><a href="http://media.wcradio.com/archive/music/pwnthatnoob.mp3" class="htrack">Pinkoes Anon - Pwn That Noob</a></li>
+	<li><a href="http://media.wcradio.com/archive/music/raidwithme.mp3" class="htrack">Jessie Cox - Raid With Me</a></li>
+	<li><a href="http://media.wcradio.com/archive/music/nerdcore.mp3" class="htrack">Fatty - /Nerdcore</a></li>
+</ul>
+<% if @previous_vote.nil? %>
+	<p><%= link_to "Place Your Vote", new_vote_path %></p>
+<% else %>
+	<p>You have already cast your vote.  You'll have to wait until the finals to find the winner.</p>
+<% end %>
+</div>

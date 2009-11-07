@@ -1,0 +1,7 @@
+<% content_for :title do %>Azeroth's First &amp; Only Talk Radio Station<% end %>
+<div id="shows-block">
+	<%= render @news %>
+	<div class="paginate-block">
+		<%= will_paginate @news %>
+	</div>
+</div>

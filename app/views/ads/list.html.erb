@@ -1,0 +1,15 @@
+<% content_for :title do %>Ad List<% end %>
+<div id="shows-block">
+<h1>Reported Ads</h1>
+<p style="color: green;"><%= flash[:notice] %></p>
+<%=  will_paginate @ads %>
+<%= page_entries_info @ads %>
+<table cellpadding="4" cellspacing="0" border="0" style="font-size: 12px; width: 500px;">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>URL</th>
+	</tr>
+	<%= render @ads %>
+</table>
+</div>

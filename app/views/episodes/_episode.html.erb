@@ -1,0 +1,20 @@
+<% cache(episode) do %>
+	<% linktext = episode.name %>
+	<% linktext = linktext + " " + episode.subtitle if episode.subtitle != nil %>
+	<% if episode.air_date %>
+		<% air_date = episode.air_date.strftime("%B %d, %Y") %>
+	<% else %>
+		<% air_date = "Unknown" %>
+	<% end %>
+	<div class="episode-item">
+		<h2><%= link_to linktext + (episode.show.badge.nil? ? ""  : image_tag(episode.show.badge)), episode.file, :class => "htrack" %></h2>
+		<h3>Show: <%= link_to(episode.show.name, show_path(episode.show)) %><br /> Air Date: <%=h air_date -%></h3>
+		<% if episode.desc && episode.desc != "" %>
+			<p><%=h episode.desc %></p>
+		<% else %>
+			<p>No episode description available.</p>
+		<% end %>
+		<%= link_to "Download", episode.file %>
+		<hr size="1" width="80%" />
+	</div>
+<% end %>

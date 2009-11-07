@@ -1,0 +1,16 @@
+<% if @show == nil %>
+	<h1>Set Show On Air</h1>
+	<% form_for :show, :url => {:action => "toggle_onair"} do |f| %>
+		<%= f.collection_select :id, Show.find(:all, :conditions => { :active => true}), :id, :name, :include_blank => false %>
+		<%= f.hidden_field :on_air, :value => 1 %>
+		<%= f.submit "Put On-Air" %>
+	<% end %>
+<% else %>
+	<h1>Take Show Off Air</h1>
+	<% form_for :show, :url => {:action => "toggle_onair"} do |f| %>
+		Are you sure you'd like to take '<%= @show.name %>' off air?
+		<%= f.hidden_field :on_air, :value => 0 %>
+		<%= f.hidden_field :id, :value => @show.id %>
+		<p><%= f.submit "Take Off-Air" %></p>
+	<% end %>
+<% end %>

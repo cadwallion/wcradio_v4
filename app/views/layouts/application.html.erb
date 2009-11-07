@@ -1,0 +1,154 @@
+<% cache("pre-title") do %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<% end %>
+  <title>WoW Radio - <%= yield :title %></title>
+<% cache("post-title") do %>
+  <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<%= stylesheet_link_tag 'frontend' %>
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag "jquery-1.3.1.min" %>
+	<script type="text/javascript" src="http://mediaplayer.yahoo.com/latest"></script>
+	<link rel="alternate" type="application/rss+xml" title="WoW Radio News" href="<%= news_index_url(:rss) %>" />
+	<%= javascript_include_tag "cad-dirty-hacks" %>
+	<%= javascript_include_tag "ef.ymp.trackSeek.js" %>
+	<%= javascript_include_tag "ef.ymp.utilities.js" %>
+</head>
+<body>
+<div id="footer-bg"> </div>
+<div id="global-container">
+	<div id="header-container">
+		<div id="logo"><%= link_to(image_tag("logo.gif", :border => 0), root_path) %></div>
+		<div id="navigation-container">
+			<div id="show-banner">
+				<%= horizontal_banner %>
+			</div>
+			<ul>
+				<li><%= link_to(image_tag("home.gif", :border => 0, :alt => "Home"), root_path) %></li>
+				<li><%= link_to(image_tag("shows.gif", :border => 0, :alt => "Shows"), shows_path) %></li>
+				<li><%= link_to(image_tag("downloads.gif", :border => 0, :alt => "Downloads"), episodes_path) %></li>
+				<li><%= link_to(image_tag("forums.gif", :border => 0, :alt => "Forums"), "http://forums.wcradio.com/") %></li>
+				<li><%= link_to(image_tag("chat.gif", :border => 0, :alt => "Webchat"), chat_path) %></li>
+				<li><%= link_to(image_tag("store.gif", :border => 0, :alt => "Store"), "http://www.cafepress.com/wearcraft") %></li>
+				<li><%= image_tag "nav-spacer.gif", :border => 0 %></li>
+				<li><%= link_to(image_tag("about.gif", :border => 0, :alt => "About"), about_path) %></li>
+				<li><%= link_to(image_tag("contact.gif", :border => 0, :alt => "Contact"), contact_path) %></li>
+				<li><%= link_to(image_tag("donate.gif", :border => 0, :alt => "Donate"), donate_path) %></li>
+			</ul>
+		</div>
+	</div>
+	<% end %>
+	<div id="body-container">
+		<div id="leftbar-container">
+			<%= render :partial => "home/onair" %>
+			<div id="upcoming">
+				<%= render :partial => "home/upcoming_show" %>
+			</div>
+			<div id="archives">
+				<%= render :file => "#{Rails.root}/app/views/episodes/recent.html.erb" %>
+			</div>
+			<% cache("vent-info") do %>
+			<div id="information">
+				<%= image_tag "info-header.gif" %>
+				<div class="show-block">
+					<ul>
+						<li><strong><u>Public Ventrilo Server</u></strong></li>
+						<li><strong>Server: </strong>vent2.ugt-servers.com</li>
+						<li><strong>Port: </strong>10024</li>
+						<li><strong>Password: </strong> wcr4diov3nt</li>	
+					</ul>
+				</div>
+				<div class="show-block">
+					<ul>
+						<li><strong><u>TF2 Server</u></strong></li>
+						<li><strong>Server: </strong>217.163.31.169</li>
+						<li><strong>Port: </strong>27015</li>
+						<li><strong>Password: </strong> wcradio</li>	
+					</ul>
+				</div>
+				<div id="twitter_div" class="show-block">
+					<h2 class="sidebar-title"><%= link_to "Twitter Updates", :controller => "twitter" %></h2>
+					<ul id="twitter_update_list"></ul>
+					<ul>
+						<li><a href="http://twitter.com/wowradio" id="twitter-link" style="display:block;text-align:right;">follow me on Twitter</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="leftbar-footer"><%= image_tag "leftbar-footer.gif" %></div>
+			<% end %>	
+			<div>
+				<script type="text/javascript"><!--
+				google_ad_client = "pub-0682877463695235";
+				/* Left Column Banner */
+				google_ad_slot = "1110011712";
+				google_ad_width = 160;
+				google_ad_height = 600;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</div>
+		</div>
+		<div id="mainbar-container">
+			<%= image_tag "mainbar-header.gif" %>
+			<div id="content-container">
+				<div id="horizontal-adbar"><%= advert_banner %></div>
+				<%= yield  %>
+			</div>
+			<div id="content-footer"><%= image_tag "mainbar-footer.gif" %></div>
+		</div>
+		<div id="rightbar-container">
+			<%= image_tag "rightbar-header.gif" %>
+			<div id="sponsor-block">
+				<script type="text/javascript"><!--
+				google_ad_client = "pub-0682877463695235";
+				/* 160x600, created 4/5/09 */
+				google_ad_slot = "5219553350";
+				google_ad_width = 160;
+				google_ad_height = 600;
+				//-->
+				</script>
+				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				<div><%= link_to "Report an Ad", new_ad_path %></div>
+				<div id="survey"><%= link_to(image_tag("podtrac_survey.jpg", :border => 0, :vspace => 5), "http://www.podtrac.com/audience/start-survey.aspx?pubid=pQ9uNsxlY2E$&ver=standard") %></div>
+			</div>
+			<%= image_tag "rightbar-footer.gif" %>
+		</div>
+	</div>
+	<%= javascript_tag(remote_function(:url => time_zone_path, :with => "'offset_minutes=' + (-1 * (new Date()).getTimezoneOffset())")) unless @time_zone %>
+	<% cache("footer-info") do %>
+	<div id="footer-container">
+		<ul id="footer-nav">
+			<li><%= link_to "Home", root_path -%></li>
+			<li><%= link_to "Shows", shows_path -%></li>
+			<li><%= link_to "Downloads", episodes_path -%></li>
+			<li><%= link_to "Forums", "http://forums.wcradio.com/" -%></li>
+			<li><%= link_to "Chat", chat_path %></li>
+			<li><%= link_to "About", about_path -%></li>
+			<li><%= link_to "Contact", contact_path -%></li>
+			<li><%= link_to "Donate", donate_path -%></li>
+		</ul>
+		<div id="copyright">
+			Copyright <%= Time.now.year %> WoW Radio.  All Rights Reserved.  Website Developed by Andrew "Cadwallion" Nordman.
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/wowradio.json?callback=twitterCallback2&amp;count=5"></script>
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-9350802-2");
+	pageTracker._trackPageview();
+	} catch(err) {}
+</script>
+</body>
+</html>
+<% end %>

@@ -1,0 +1,49 @@
+<div class="news-item">
+	<%= image_tag "news-header.gif" %>
+	<h2><%= link_to news.title, news_path(news) -%></h2>
+	<h3>Posted by <%=h news.user.login.titleize -%> on <%= news.created_at.strftime("%B %d, %Y") -%></h3>
+	<hr size="2" width="80%" />
+	<%= RedCloth.new(news.desc).to_html %>
+	<% if params[:controller] == "home" || (params[:controller] == "news" && params[:action] == "index") %>
+		<% if news_counter == 0 %>
+			<div style="text-align: center;">
+				<script type="text/javascript"><!--
+					google_ad_client = "pub-0682877463695235";
+					/* Center Column First Post */
+					google_ad_slot = "1622774712";
+					google_ad_width = 468;
+					google_ad_height = 60;
+					//-->
+				</script>
+				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+			</div>
+		<% elsif news_counter == 1 %>
+			<div style="text-align: center;">
+				<script type="text/javascript"><!--
+				google_ad_client = "pub-0682877463695235";
+				/* Center Column Second Post */
+				google_ad_slot = "6608063711";
+				google_ad_width = 468;
+				google_ad_height = 15;
+				//-->
+				</script>
+				<script type="text/javascript"
+				src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+				</script>
+			</div>
+		<% elsif news_counter == (@news.size - 1) %>
+			<div style="text-align: center;">
+				<script type="text/javascript"><!--
+					google_ad_client = "pub-0682877463695235";
+					/* Center Column Last Post */
+					google_ad_slot = "3369656726";
+					google_ad_width = 468;
+					google_ad_height = 15;
+					//-->
+				</script>
+				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+			</div>
+		<% end %>
+	<% end %>
+	<%= image_tag "news-footer.gif" %>
+</div>

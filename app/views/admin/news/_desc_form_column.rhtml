@@ -1,0 +1,14 @@
+
+	<dl class="">
+		<dt>
+			<label for="record_desc_"><strong>News Detail</strong><br /><a href='http://redcloth.org/textile'>Formatting Guide</a></label>
+		</dt>
+		<dd>
+			<textarea id="record_desc_" rows="20" name="record[desc]" cols="40"><%= @record.desc %></textarea><br />
+			<% if @record.desc.nil? %>
+				<%= submit_to_remote 'preview', 'Preview', :url => {:action => "preview", :id => "current"}, :update => "admin__news-create--messages" %>
+			<% else %>
+				<%= submit_to_remote 'preview', 'Preview', :url => {:action => "preview", :id => "current"}, :update => "admin__news-update-#{@record.id}-messages" %>
+			<% end %>
+		</dd>
+	</dl>

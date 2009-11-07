@@ -1,0 +1,14 @@
+<%= image_tag "upcoming-header.gif", :vspace => 0, :hspace => 0, :border => 0 %>
+<div id="upcoming-block" class="show-block">
+	<%= image_tag "archive-item-header.gif"%>
+	<ul>
+		<% upcoming = Show.upcoming %>
+		<% if upcoming %>
+			<li id="upcoming-name" class="show-block-name"><%= link_to upcoming.name, show_path(upcoming) %></li>
+			<li id="upcoming-time" class="show-block-date"><%= when_upcoming(upcoming) %></li>
+		<% else %>
+			<li>No Upcoming Show Scheduled.</li>
+		<% end %>
+	</ul>
+	<%= image_tag "archive-item-footer.gif" %>
+</div>

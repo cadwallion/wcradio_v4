@@ -1,0 +1,9 @@
+<% content_for :title do %>Staff Twitter Updates<% end %>
+<div id="shows-block">
+	<div class="news-item">
+		<h1>WoW Radio Staff Twitter Updates</h1>
+		<ul id="twitter-updates">
+			<%= render :partial => "update", :collection => @updates %>
+		</ul>	
+	</div>
+</div>

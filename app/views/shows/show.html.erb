@@ -1,0 +1,18 @@
+<div id="shows-block">
+	<% if @show != nil %>
+		<% content_for :title do %><%= @show.name %><% end %>
+		<%= render @show %>
+		<div class="show-item">
+		<h2><%= link_to @show.name + " Blog", show_news_path(@show) %></h2>
+		<p>For a full list of blog posts, <%= link_to "click here.", show_news_path(@show) %>  Interested in following the blogs of all shows?  Check out our <%= link_to "Show Blogs Mashup.", news_shows_path %></p>
+		<% if @news.size > 0 %>
+			<%= render @news %>
+		<% else %>
+			<p>There are currently no blog posts for this show.  Come back later!</p>
+		<% end %>
+		</div>
+	<% else %>
+		<% content_for :title do %>Show Not Found<% end %>
+		<p>We're sorry, but our records cannot find a show by that name. <%= link_to "Back to Shows Section", shows_path %></p>
+	<% end %>
+</div>

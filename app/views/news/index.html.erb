@@ -1,0 +1,17 @@
+<div id="shows-block">
+	<div class="show-item">
+		<% if params[:show_id] %>
+		<% content_for :title do %><%= @news[0].show.name + "Blog" + (" Page #{params[:page]}" if params[:page]) %><% end %>
+		<h1><%= @news[0].show.name %> Blog</h1>
+	<% else %>
+		<% content_for :title do %>Show Blog Mashup<% " Page #{params[:page]}" if params[:page] %><% end %>
+		<h1>Show Blog Mashup</h1>
+	<% end %>
+		<% if @news %>
+			<%= render @news %>
+			<div class="paginate-block"><%= will_paginate @news %></div>
+		<% else %>
+			<p>There are currently no blog posts.  Come back later!</p>
+		<% end %>
+	</div>
+</div>

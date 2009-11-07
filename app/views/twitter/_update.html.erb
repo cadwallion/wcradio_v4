@@ -1,0 +1,7 @@
+<% cache "update_#{update.id}", :expires_in => 1.hour do %>
+<li class="twitter-update-item">
+<%= image_tag update.user.profile_image_url, :vspace => 4, :hspace => 4 %> <%= link_to update.user.screen_name, "http://twitter.com/" + update.user.screen_name %>
+<p><%= update.text %></p>
+<hr width="80%" size="1" />
+</li>
+<% end %>

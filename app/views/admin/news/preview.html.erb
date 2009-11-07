@@ -1,0 +1,5 @@
+<div id="preview-container">
+	(The following is a preview of your news post.)
+	<h1><%=h @record[:title] %></h1>
+	<%= RedCloth.new(@record[:desc]).to_html %>
+</div>

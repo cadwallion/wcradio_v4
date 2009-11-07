@@ -1,0 +1,24 @@
+<% @recent_episodes = Episode.recent if @recent_episodes.nil? %>
+<%= image_tag "archive-header.gif" %>
+<% if @recent_episodes.size > 0 %>
+	<% @recent_episodes.each do |episode| %>
+		<% cache([episode, "recent-block"]) do %>
+			<div class="show-block">
+				<%= image_tag "archive-item-header.gif" %>
+				<ul>			
+					<li class="show-block-name"><%= link_to(episode.show.name, show_path(episode.show)) %></li>
+					<li class="show-block-title"><%= link_to(episode.name, show_episode_path(episode.show, episode)) %></li>
+					<li class="show-block-date"><%= episode.air_date.strftime("%A, %b %d, %Y") %></li>
+				</ul>
+				<%= image_tag "archive-item-footer.gif" %>
+			</div>
+		<% end %>
+	<% end %>
+	<div class="show-block"><%= link_to_remote("Previous", :update => "archives", :url => { :controller => "episodes", :action => "recent", :page => (params[:page].to_i - 1) }) unless (params[:page].nil? or params[:page].to_i <= 1) %>
+		<%= link_to_remote("Next", :update => "archives", :url => {:controller => "episodes", :action => "recent", :page => (params[:page].nil? ? 1 : params[:page]).to_i + 1 }) %>
+	</div>
+<% else %>
+	<div class="show-block">
+		Archives are currently Offline.
+	</div>
+<% end %>

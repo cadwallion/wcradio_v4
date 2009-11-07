@@ -1,0 +1,53 @@
+<% content_for :title do %>BlizzCon 2009 Coverage<% end %>
+	
+<div id="shows-block">
+	<h2>BlizzCon 2009 Coverage</h2>
+	
+	<p>This year WoW Radio is bringing you LIVE commentaries, interviews, and breakdowns of what is going on at the Anaheim Convention Center for BlizzCon 2009.</p>
+	
+	<p>We have events for our two LIVE streams.  Our studio stream will be broadcasting all day to give you an analysis of the content in all the day's panels, discussions on the convention, as well as studio interviews of notables and others.  Plenty of excitement all day long, so tune in.  Note: our live broadcast will be in 56kbps, but our recordings of all studio broadcasts will be in 128kbps.  This means you can listen on your phone, your friendly Starbucks, anywhere!  There's no reason to not tun in.</p>
+	
+	<p>Our <%= link_to "second stream", "http://listen.wcradio.com:8000/listen.pls" %> will be a mobile rig roaming about the convention center getting on-site interviews of reactions, discussions of what's going on at the con, and much more.  This stream will be on sporadically throughout the day and will be announced in <%= link_to "Twitter", twitter_path %> and <%= link_to "IRC", chat_path %> when things will be occurring so keep an eye out for the next broadcast!</p>
+	
+	<p>Throughout the day we will be bringing you two ADDITIONAL bits of delicious BlizzCon content.  We will be providing recordings of all audio panels (with the proper edits as mandated by Blizzard due to exclusivity rights for DirectTV) that will be uploaded as the day goes on for those that absolutely MUST hear the panels.  In addition, a team will be roaming about with a video camera catching people for video interviews as well as any other shenanigans that may occur.  You will find all this content right here, and each submission will be announced in <%= link_to "IRC", chat_path %> and in <%= link_to "Twitter", twitter_path %> as well.</p>
+	
+	<p>Plenty of things to keep you informed on ALL aspects of BlizzCon 2009, so tune in and enjoy what WoW Radio brings to your eardrums all day long.</p>
+	
+	<h2>WoW Radio BlizzCon Communication</h2>
+	<ul>
+		<li>Studio Stream - <%= link_to "Click Here to listen!", "http://wcradio.com/listen.pls" %></li>
+		<li>Mobile Stream - <%= link_to "Click Here to listen!", "http://listen.wcradio.com:8000/listen.pls" %></li>
+		<li>Twitter - <%= link_to "WoW Radio Staff Mashup", twitter_path %></li>
+		<li>IRC - <%= link_to "Connect via our Web Applet", chat_path %> or connect to irc.mmoic.com:6667 #wowradio </li>
+	</ul>
+	
+	<h2>WoW Radio BlizzCon Schedule - Friday, August 21st</h2>
+	<h3>Studio Stream - <%= link_to "Click Here to listen!", "http://wcradio.com/listen.pls" %></h3>
+	<ul>
+		<li>12:30-2pm PDT - Speedyf40 and Duncor</li>
+		<li>2-3:30pm PDT - Octale and DocDead</li>
+		<li>3:30-4:30pm PDT - Pride and Omacron</li>
+		<li>4:30-6pm PDT - Eriyanna and Stormtamer</li>
+		<li>6-7pm PDT - Mickey-C and Special Guest</li>
+		<li>7-8pm PDT - Eriyanna, Gnomewise, and FattyFTW interview The Guild's Vork and Zaboo</li>
+		<li>8-9pm PDT - Railvas and DeathNDecay</li>
+		<li>9-10pm PDT - Special Episode of PUG with the WoW Radio Crew</li>
+	</ul>
+	
+	<h2>WoW Radio BlizzCon Schedule - Saturday, August 22nd</h2>
+	<h3>Studio Stream - <%= link_to "Click Here to listen!", "http://wcradio.com/listen.pls" %></h3>
+	<ul>
+		<li>11:30am-1pm PDT - Railvas and Duncor</li>
+		<li>1-2:30pm PDT - Eriyanna and Mugi</li>
+		<li>2:30-3:30pm PDT - Stormtamer, Pride, and Thunderer</li>
+		<li>3:30-4:30pm PDT - Duncor and Snapplemonkey</li>
+		<li>4:30-6pm PDT Speedyf40, Mickey-C  and Omacron</li>
+	</ul>
+	
+	<h2>BlizzCon 2009 Downloads</h3>
+	<div class="paginate-block"><%= will_paginate @episodes %></div>
+	<div class="paginate-block"><%= page_entries_info @episodes %></div>
+	<%= render @episodes %>
+	<div class="paginate-block"><%= will_paginate @episodes %></div>
+	<div class="paginate-block"><%= page_entries_info @episodes %></div>
+</div>

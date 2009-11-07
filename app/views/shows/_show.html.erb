@@ -1,0 +1,12 @@
+<div class="show-item">
+	<h1><%= link_to show.name, show_path(show) %></h1>
+	<div><%= image_tag show.badge, :align => "left", :vspace => 4, :hspace => 10 if show.badge %></div>
+	<h3>Host(s): <%=h show.hosts %>. <% if params[:action] != "classics" %><br />Airs: <%= air_date(show.next_show) %>s at <%= air_time(show.next_show) %><% end %></h3>
+	<% if show.desc != nil %>
+		<p><%= RedCloth.new(show.desc).to_html %></p>
+	<% else %>
+		<p>No description of show available.</p>
+	<% end %>
+	<p><%= link_to("Podcast Feed", show_path(show, :format => "rss")) %> | <%= (link_to("Downloads", show_episodes_path(show)) + " | ") if show.episodes.count > 0 %><%= mail_to show.email, "Show Email" %><%= " | " + link_to("Subscribe in iTunes", show.itunes) unless show.itunes.nil? %></p>
+	<div style="clear: both"><hr size="1" width="80%" /></div>
+</div>

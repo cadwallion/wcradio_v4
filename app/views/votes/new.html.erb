@@ -1,0 +1,24 @@
+<div id="shows-block">
+<% if @previous_vote.nil? %>
+<h1>WoW Idol - Cast Your Vote!</h1>
+
+<% form_for @vote do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <select id="vote_name" name="vote[name]">
+			<option value="1">Bill Shaw - Patch Tuesday</option>
+			<option value="2">Brewguy - My Name is Newbie</option>
+			<option value="3">Pinkoes Anon - Pwn That Noob</option>
+			<option value="4">Jessie Cox - Raid With Me</option>
+			<option value="5">Fatty - /Nerdcore</option>
+		</select>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
+<% else %>
+	<p>You have already cast your vote.  You'll have to wait until the finals to find the winner.</p>
+<% end %>
+<p><%= link_to "Back to List", votes_path %></p>
+</div>

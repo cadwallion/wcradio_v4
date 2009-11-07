@@ -1,0 +1,14 @@
+<% unless @news.nil? %>
+	<% content_for :title do %><%= @news.title %><% end %>
+	<div id="shows-block">
+		<%= render @news %>
+		<% if @news.show %>
+			<%= link_to "Back to #{@news.show.name} News", show_path(@news.show) %>
+		<% else %>
+			<%= link_to "Back to News", root_path %>
+		<% end %>
+	</div>
+<% else %>
+	<% content_for :title do %>News Article Unavailable<% end %>
+	<div id="shows-block"><p>I'm sorry, the news article you have requested is not available.</p></div>
+<% end %>

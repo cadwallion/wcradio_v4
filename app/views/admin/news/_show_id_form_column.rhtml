@@ -1,0 +1,8 @@
+<dl class="">
+  <dt>
+    <label for="record_show_id_"><strong>Show Blog</strong><br/>If this is a show blogpost, select show.  For frontpage news, leave blank.</label>
+  </dt>
+  <dd>
+    <%= collection_select :record, :show_id, Show.find(:all, :conditions => {:active => true}), :id, :name, {:prompt => "No Show (Frontpage Post)", :include_blank => true} %>
+  </dd>
+</dl>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyString
+  hosts: MyString
+  email: MyString
+  keywords: MyText
+  next_show: 2009-02-18
+  time: 2009-02-18 07:44:37
+  active: false
+
+two:
+  name: MyString
+  desc: MyString
+  hosts: MyString
+  email: MyString
+  keywords: MyText
+  next_show: 2009-02-18
+  time: 2009-02-18 07:44:37
+  active: false

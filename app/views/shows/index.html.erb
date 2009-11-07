@@ -1,0 +1,15 @@
+<div id="shows-block">
+	<% if params[:action] == "classics" %>
+	<h1>WoW Radio Classics</h1>
+	<% content_for :title do %>Classic Shows<%= " Page " + params[:page] unless params[:page].nil? %><% end %>
+	<p>Below you will find WoW Radio shows that have since gone off the air.  Feel free to peruse our archives to hear past stories about World of Warcraft in the myriad of voices that once broadcast from our location.  Once you're done with that, check our all of our <%= link_to "Active Shows", shows_path %> here on WoW Radio!</p>
+	<% else %>
+	<h1>WoW Radio Shows</h1>
+	<% content_for :title do %>Shows<%= " Page " + params[:page] unless params[:page].nil? %><% end %>
+	<p>Below you will find all of the active WoW Radio shows airing throughout the week.  Feel free to peruse the downloads to get a taste of what each show has to offer.  If you like, make sure you sign up for their podcast feed or listen live on their broadcast date.  Or, if you are feeling nostalgic, check out our <%= link_to "WoW Radio Classics", classics_shows_path %> section with all of the old shows in WoW Radio history!</p>
+	<% end %>
+	<%= render @shows %>
+	<div class="paginate-block">
+		<%= will_paginate @shows %>
+	</div>
+</div>

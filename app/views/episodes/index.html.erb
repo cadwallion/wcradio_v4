@@ -1,0 +1,21 @@
+<div id="shows-block">
+	
+	<% if @episodes[0] != nil %>
+		<% if params[:show_id] != nil %>
+			<% content_for :title do %><%= @episodes[0].show.name %> Downloads<%= " Page " + params[:page] unless params[:page].nil? %><% end %>
+			<h1><%= @episodes[0].show.name %> Archives</h1>
+			<p>Below you will find the collected archives for <%= @episodes[0].show.name %>.  For a larger selection of the shows available, visit the <%= link_to "Shows", shows_path %> section, or for a taste of everything, visit our <%= link_to "Downloads", episodes_path %>.</p>
+		<% else %>
+			<% content_for :title do %>WoW Radio Downloads<%= " Page " + params[:page] unless params[:page].nil? %><% end %>
+			<h1>WoW Radio Archives</h1>
+			<p>Below you will find the collected archives of all of our shows.  For a narrower selection of archives, visit our <%= link_to "Shows", shows_path %> section for descriptions and direct links to a show's archive section.</p>
+		<% end %> 
+		<%= render @episodes %>
+		<div class="paginate-block">
+			<%= will_paginate @episodes %>
+		</div>
+	<% else %>
+		<h1>WoW Radio Archives</h1>
+		<p>There are no shows available at this time.</p>
+	<% end %>
+</div>

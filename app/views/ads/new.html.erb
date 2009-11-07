@@ -1,0 +1,17 @@
+<% content_for :title do %>Report an Ad<% end %>
+<div id="shows-block">
+<h1>Report an Advertisement</h1>
+<p>Enter in as much information as possible about the ad being displayed that you would like to report (at minimum please provide the url of the ad) and our web team will blacklist the ad as quickly as possible.  This will ensure that you can contribute to the fight against goldsellers in AdSense and our continued existence on the Internets.  Thank you for your contribution to the cause, we will review and remove the ad if it is deemed inappropriate.</p>
+<p style="color: green;"><%= flash[:notice] %></p>
+<p style="color: red;"><%= flash[:error] %></p>
+<% form_for @ad do |f| -%>
+  <p><%= f.label :name, "Ad Title" %></p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :description, "Ad Description"%></p>
+  <p><%= f.text_field :description %></p>
+  <p><%= f.label :url, "Ad URL"%></p>
+  <p><%= f.text_field :url %></p>
+  <p><%= show_simple_captcha :distortion => "high" %></p>
+  <p><%= f.submit "Submit Ad Report", :disable_with => 'Submit Ad Reporting...' %></p>
+<% end -%>
+</div>

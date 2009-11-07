@@ -1,0 +1,10 @@
+<% cache("onair-info") do %>
+<div id="onair">
+	<%= image_tag "onair-header.gif" %>
+	<ul>
+		<li><%= onair_badge %></li>
+		<li><%= link_to(image_tag("listen.gif", :vspace => 0, :border => 0), "http://screlay-dtc0l-3.shoutcast.com:8024/;WoW_Radio_Live_Stream.mp3", :class => "htrack", :id => "web-player-link") %></li>
+		<li><%= link_to(image_tag("open-media.gif", :border => 0), "http://wcradio.com/listen.pls", :id => "listen-media") %></li>
+	</ul>
+</div>
+<% end %>
