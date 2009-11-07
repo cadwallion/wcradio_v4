@@ -21,7 +21,7 @@ development:
   database: kittencannon_development
   pool: 5
   username: cadwallion
-  password: d9p4XYf32
+  password: **********
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -44,7 +44,7 @@ production:
   database: wcradio_production
   pool: 5
   username: wcradio-build
-  password: d9p4XYf32
+  password: *********
   socket: /var/lib/mysql/mysql.sock
   
 staging:
@@ -54,7 +54,7 @@ staging:
   database: wcradio_staging
   pool: 5
   username: wcradio-build
-  password: d9p4XYf32
+  password: ********
   socket: /var/lib/mysql/mysql.sock
   
 legacy:
@@ -64,6 +64,6 @@ legacy:
   database: wcradio_wowradio
   pool: 5
   username: wcradio-export
-  password: d9p4XYf32
+  password: *********
   socket: /var/lib/mysql/mysql.sock
   
